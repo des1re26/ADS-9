@@ -21,7 +21,7 @@ int main() {
     for (std::size_t i = 0; i < n; ++i) {
       alphabet.push_back(static_cast<char>('a' + i));
     }
-    Tree tree(alphabet);
+    PMTree tree(alphabet);
     int total = static_cast<int>(factorial(n));
 
     auto start = std::chrono::high_resolution_clock::now();
