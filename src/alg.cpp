@@ -9,7 +9,7 @@ std::size_t factorial(std::size_t m) {
   return f;
 }
 
-std::vector<std::vector<char>> getAllPerms(const Tree& tree) {
+std::vector<std::vector<char>> getAllPerms(const PMTree& tree) {
   std::vector<std::vector<char>> result;
   if (tree.getRoot() == nullptr) return result;
   std::vector<char> current;
@@ -17,7 +17,7 @@ std::vector<std::vector<char>> getAllPerms(const Tree& tree) {
   return result;
 }
 
-std::vector<char> getPerm1(const Tree& tree, int num) {
+std::vector<char> getPerm1(const PMTree& tree, int num) {
   auto all = getAllPerms(tree);
   if (num < 1 || static_cast<std::size_t>(num) > all.size()) {
     return {};
@@ -25,7 +25,7 @@ std::vector<char> getPerm1(const Tree& tree, int num) {
   return all[num - 1];
 }
 
-std::vector<char> getPerm2(const Tree& tree, int num) {
+std::vector<char> getPerm2(const PMTree& tree, int num) {
   std::size_t n = tree.size();
   if (num < 1 || static_cast<std::size_t>(num) > factorial(n)) {
     return {};
