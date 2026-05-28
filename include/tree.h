@@ -14,10 +14,9 @@ struct TreeNode {
   explicit TreeNode(char v) : value(v) {}
 };
 
-// Вспомогательная функция – факториал
 std::size_t factorial(std::size_t m);
 
-class Tree {
+class PMTree {
  private:
   TreeNode* root;
   std::size_t n;
@@ -43,7 +42,7 @@ class Tree {
   }
 
  public:
-  explicit Tree(const std::vector<char>& input)
+  explicit PMTree(const std::vector<char>& input)
       : root(new TreeNode('\0')), n(input.size()) {
     if (!input.empty()) {
       std::vector<char> sorted = input;
@@ -52,7 +51,7 @@ class Tree {
     }
   }
 
-  ~Tree() { deleteTree(root); }
+  ~PMTree() { deleteTree(root); }
 
   TreeNode* getRoot() const { return root; }
   std::size_t size() const { return n; }
@@ -72,9 +71,8 @@ class Tree {
   }
 };
 
-// Функции для получения перестановок
-std::vector<std::vector<char>> getAllPerms(const Tree& tree);
-std::vector<char> getPerm1(const Tree& tree, int num);
-std::vector<char> getPerm2(const Tree& tree, int num);
+std::vector<std::vector<char>> getAllPerms(const PMTree& tree);
+std::vector<char> getPerm1(const PMTree& tree, int num);
+std::vector<char> getPerm2(const PMTree& tree, int num);
 
 #endif  // INCLUDE_TREE_H_
